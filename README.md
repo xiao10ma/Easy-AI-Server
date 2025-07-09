@@ -128,10 +128,10 @@ https://github.com/user-attachments/assets/4e5686ab-5496-44ee-83c3-c5b160802701
 | 当前目录     | `.`                 | 表示当前目录，常用于路径组合或执行脚本，例如 `./run.sh`                                                |
 | 上级目录     | `..`                | 表示当前目录的上一级，例如 `../data/` 表示父目录下的 `data` 文件夹                                   |
 | 创建目录     | `mkdir {new_folder/}` | 创建一个文件夹，名字可以自己起<br />👉 例如：`mkdir results`                                           |
-| 删除文件     | `rm file.txt`       | 删除文件（不可恢复）                                                                                     |
-| 删除目录     | `rm -r folder/`     | 递归删除目录及其内容                                                                                     |
-| 复制文件     | `cp a.txt b.txt`    | 将 `a.txt` 复制为 `b.txt`                                                                            |
-| 移动/重命名  | `mv a.txt b.txt`    | 改名或移动文件                                                                                           |
+| 删除文件     | `rm {file.txt}`       | 删除文件（不可恢复）                                                                                     |
+| 删除目录     | `rm -r {folder/}`     | 递归删除目录及其内容                                                                                     |
+| 复制文件     | `cp {a.txt} {b.txt}`    | 将 `a.txt` 复制为 `b.txt`                                                                            |
+| 移动/重命名  | `mv {a.txt} {b.txt}`    | 改名或移动文件                                                                                           |
 
 ### 🖥 三、服务器资源查看
 
