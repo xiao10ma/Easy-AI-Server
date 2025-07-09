@@ -32,6 +32,7 @@
         <li><a href="#-二安装步骤以-miniconda-为例">3.2 安装步骤 - Installation Steps</a></li>
         <li><a href="#-三加速安装配置国内镜像源">3.3 加速安装：配置国内镜像源 - Speed Up with Mirrors</a></li>
         <li><a href="#-四实战使用-conda-配置环境">3.4 实战：使用 Conda 配置环境</a></li>
+        <li><a href="#-五实验推荐安装工具">3.5 实验推荐安装工具 - Recommended Tools</a></li>
       </ul>
     </li>
     <li><a href="#-hugging-face-配置">4. Hugging Face 配置 - Hugging Face Setup</a></li>
@@ -594,7 +595,7 @@ pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https
 
 ---
 
-### 🔥 实验推荐安装工具
+### 🔥 五、实验推荐安装工具
 
 1. [nvitop](https://github.com/XuehaiPan/nvitop)，方便查看GPU使用情况：
 
