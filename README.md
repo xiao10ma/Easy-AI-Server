@@ -112,7 +112,7 @@ ssh 4090
 
 或者用vscode：
 
-https://github.com/user-attachments/assets/77574c19-a138-450f-b03f-8bce06e98090
+https://github.com/user-attachments/assets/4e5686ab-5496-44ee-83c3-c5b160802701
 
 ### 📁 二、文件与目录操作
 
