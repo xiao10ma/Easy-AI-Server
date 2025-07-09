@@ -266,7 +266,7 @@ GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
 
 ---
 
-### 🌐 使用 SSH 方式连接 GitHub
+### 🌐 四、使用 SSH 方式连接 GitHub
 
 在开始使用 Git 和 GitHub 之前，我们先来配置 SSH 连接。这样可以避免每次 push 代码时都需要输入用户名和密码，既安全又省心。
 
@@ -300,7 +300,7 @@ ssh -T git@github.com
 
 ---
 
-### 📝 实战：创建自己的 Git 仓库并上传代码（配合 VS Code 使用）
+### 📝 五、实战：创建自己的 Git 仓库并上传代码（配合 VS Code 使用）
 
 完成 SSH 配置后，现在我们来创建并使用自己的 Git 仓库：
 
@@ -336,7 +336,9 @@ ssh -T git@github.com
 
 ---
 
-### 🧠 建议写法：配合 `.gitignore`
+### 💡 额外Tips:
+
+#### 建议写法：配合 `.gitignore`
 
 为了避免不必要的文件上传到 GitHub（如模型权重、日志文件等），建议你在项目根目录添加 `.gitignore` 文件，例如：
 
@@ -348,15 +350,11 @@ __pycache__/
 checkpoints/
 ```
 
----
+#### GitLens 插件
 
-### 🤔 常见问题
+VS Code 的 GitLens 插件可以方便地查看文件的修改历史、比较差异等。
 
-| 问题                             | 解决方式                                            |
-| -------------------------------- | --------------------------------------------------- |
-| 每次 push 都要输入用户名和密码？ | 建议使用 SSH 密钥                                   |
-| 忘了加文件就提交了？             | 用 `git add` 后重新 `git commit --amend`        |
-| 提交错了？想回滚？               | `git reset` 或 `git checkout`，建议查阅具体教程 |
+<p align="center"><img src="image/README/gitlens.png" width="90%"></p>
 
 ---
 
