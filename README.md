@@ -352,7 +352,9 @@ GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
    - 在左侧栏，源代码管理处，点击加号，添加文件到暂存区
    - 写好提交信息（比如：`添加了README文件`），点提交
    - 点击，同步，即可看到文件被上传到Github上
-     ![1752039598011](image/README/1752039598011.png)
+    <div style="text-align: center;">
+        <img src="image/README/1752039598011.png" style="width: 50%;">
+    </div>
 
 ---
 
