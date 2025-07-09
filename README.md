@@ -354,7 +354,7 @@ checkpoints/
 
 VS Code 的 GitLens 插件可以方便地查看文件的修改历史、比较差异等。
 
-<p align="center"><img src="image/README/gitlens.png" width="90%"></p>
+<p align="center"><img src="image/README/gitlens.png" width="100%"></p>
 
 ---
 
