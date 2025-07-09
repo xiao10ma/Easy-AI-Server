@@ -112,6 +112,11 @@ ssh 4090
 
 或者用vscode：
 
+
+https://github.com/user-attachments/assets/77574c19-a138-450f-b03f-8bce06e98090
+
+
+
 ![使用VSCode连接服务器](assets/ssh.gif)
 
 ### 📁 二、文件与目录操作
