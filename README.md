@@ -27,7 +27,8 @@ mazipei@10.28.5.13's password:
 
 输入密码即可（linux在输入密码时不会显示）
 
-#### （可选）服务器免密登陆
+<details>
+<summary>（可选）服务器免密登陆</summary>
 
 每次登录服务器都需要输入密码，比较麻烦。可以通过设置 SSH 密钥实现免密登录：
 
@@ -113,6 +114,8 @@ ssh 4090
 或者用vscode：
 
 https://github.com/user-attachments/assets/4e5686ab-5496-44ee-83c3-c5b160802701
+
+</details>
 
 ---
 
