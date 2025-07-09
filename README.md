@@ -19,7 +19,7 @@
     <li><a href="#-git-与-github-使用简明指南">2. Git 与 GitHub 使用简明指南 - Git & GitHub Guide</a>
       <ul>
         <li><a href="#-一git-是什么">2.1 Git 是什么？ - What is Git?</a></li>
-        <li><a href="#-二github-是什么">2.2 GitHub 是什么？ - What is GitHub?</a></li>
+        <li><a href="#️-二github-是什么">2.2 GitHub 是什么？ - What is GitHub?</a></li>
         <li><a href="#-三常见-git-命令">2.3 常见 Git 命令 - Common Git Commands</a></li>
         <li><a href="#-四使用-ssh-方式连接-github">2.4 使用 SSH 方式连接 GitHub</a></li>
         <li><a href="#-五实战创建自己的-git-仓库并上传代码配合-vs-code-使用">2.5 实战：创建自己的 Git 仓库并上传代码（配合 VS Code 使用）</a></li>
