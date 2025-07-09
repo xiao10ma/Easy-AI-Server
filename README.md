@@ -16,20 +16,20 @@
         <li><a href="#-四实用技巧">1.4 实用技巧 - Useful Tips</a></li>
       </ul>
     </li>
-    <li><a href="#-anaconda--miniconda-安装与配置">2. Anaconda/Miniconda 安装与配置 - Installation & Setup</a>
+    <li><a href="#-git-与-github-使用简明指南">2. Git 与 GitHub 使用简明指南 - Git & GitHub Guide</a>
       <ul>
-        <li><a href="#-安装位置建议">2.1 安装位置建议 - Installation Location</a></li>
-        <li><a href="#-安装步骤以-miniconda-为例">2.2 安装步骤 - Installation Steps</a></li>
-        <li><a href="#-加速安装配置国内镜像源">2.3 加速安装：配置国内镜像源 - Speed Up with Mirrors</a></li>
+        <li><a href="#-一git-是什么">2.1 Git 是什么？ - What is Git?</a></li>
+        <li><a href="#-二github-是什么">2.2 GitHub 是什么？ - What is GitHub?</a></li>
+        <li><a href="#-三常见-git-命令">2.3 常见 Git 命令 - Common Git Commands</a></li>
+        <li><a href="#-如何连接-github">2.4 如何连接 GitHub - GitHub Connection</a></li>
+        <li><a href="#-git-项目典型工作流程">2.5 Git 项目典型工作流程 - Git Workflow</a></li>
       </ul>
     </li>
-    <li><a href="#-git-与-github-使用简明指南">3. Git 与 GitHub 使用简明指南 - Git & GitHub Guide</a>
+    <li><a href="#-anaconda--miniconda-安装与配置">3. Anaconda/Miniconda 安装与配置 - Installation & Setup</a>
       <ul>
-        <li><a href="#-一git-是什么">3.1 Git 是什么？ - What is Git?</a></li>
-        <li><a href="#-二github-是什么">3.2 GitHub 是什么？ - What is GitHub?</a></li>
-        <li><a href="#-三常见-git-命令">3.3 常见 Git 命令 - Common Git Commands</a></li>
-        <li><a href="#-如何连接-github">3.4 如何连接 GitHub - GitHub Connection</a></li>
-        <li><a href="#-git-项目典型工作流程">3.5 Git 项目典型工作流程 - Git Workflow</a></li>
+        <li><a href="#-一安装位置建议">3.1 安装位置建议 - Installation Location</a></li>
+        <li><a href="#-二安装步骤以-miniconda-为例">3.2 安装步骤 - Installation Steps</a></li>
+        <li><a href="#-三加速安装配置国内镜像源">3.3 加速安装：配置国内镜像源 - Speed Up with Mirrors</a></li>
       </ul>
     </li>
     <li><a href="#-hugging-face-配置">4. Hugging Face 配置 - Hugging Face Setup</a></li>
@@ -227,75 +227,6 @@ vim {filename}
 
 ---
 
-## 🐍 Anaconda / Miniconda 安装与配置
-
-在服务器上使用 Anaconda（或更轻量的 Miniconda）可以方便地管理 Python 环境和依赖库。由于不同项目通常依赖不同版本的 Python、PyTorch、CUDA 等组件，使用 Conda 环境进行隔离是一种推荐的做法。
-
-### 📦 一、安装位置建议
-
-深度学习项目常常依赖较大的包（如 `torch`、`transformers`、`diffusers` 等），安装体积可能达到数 GB。为了避免占用主目录空间（尤其是 `/home/{username}` 容量较小的情况），**建议将 Conda 安装至数据目录**。
-
-### 🛠 二、安装步骤（以 Miniconda 为例）
-
-1. 下载 Miniconda 安装脚本
-
-   可在[官网](https://www.anaconda.com/docs/getting-started/miniconda/main)下载对应版本或使用 `wget` 命令：
-
-   ```bash
-   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-   ```
-2. 运行安装脚本
-
-   ```bash
-   bash Miniconda3-latest-Linux-x86_64.sh
-   ```
-
-   安装过程中会提示输入安装路径，建议填写你自己的数据目录路径：
-
-   ```
-   /HDD_DISK/users/{username}/miniconda3
-   ```
-
-   其余一律回车。安装完成后，`source ~/.bashrc`
-3. 测试 Conda 是否安装成功
-
-   ```bash
-   conda --version
-   ```
-
-   会输出类似下面的内容，表示 Conda 已正常安装并可用：
-
-   ```bash
-   conda 24.3.0
-   ```
-
-### 🚀 三、加速安装：配置国内镜像源
-
-由于服务器访问 PyPI 官方源速度较慢，可能导致安装 Python 包时超时或下载缓慢，建议配置国内镜像源以提升安装速度。
-
-```bash
-# 升级 pip
-python -m pip install --upgrade pip
-# 设置 pip 使用清华源
-pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
-```
-
-你也可以查看配置是否生效：
-
-```bash
-pip config list
-```
-
-#### 💡 常见国内源列表（可选）
-
-| 镜像源   | 地址                                                     |
-| -------- | -------------------------------------------------------- |
-| 清华大学 | `https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple` |
-| 中科大   | `https://pypi.mirrors.ustc.edu.cn/simple`              |
-| 阿里云   | `https://mirrors.aliyun.com/pypi/simple/`              |
-
----
-
 ## 🧩 Git 与 GitHub 使用简明指南
 
 ### 📌 一、Git 是什么？
@@ -438,6 +369,77 @@ checkpoints/
 | 每次 push 都要输入用户名和密码？ | 建议使用 SSH 密钥                                   |
 | 忘了加文件就提交了？             | 用 `git add` 后重新 `git commit --amend`        |
 | 提交错了？想回滚？               | `git reset` 或 `git checkout`，建议查阅具体教程 |
+
+---
+
+## 🐍 Anaconda / Miniconda 安装与配置
+
+在服务器上使用 Anaconda（或更轻量的 Miniconda）可以方便地管理 Python 环境和依赖库。由于不同项目通常依赖不同版本的 Python、PyTorch、CUDA 等组件，使用 Conda 环境进行隔离是一种推荐的做法。
+
+### 📦 一、安装位置建议
+
+深度学习项目常常依赖较大的包（如 `torch`、`transformers`、`diffusers` 等），安装体积可能达到数 GB。为了避免占用主目录空间（尤其是 `/home/{username}` 容量较小的情况），**建议将 Conda 安装至数据目录**。
+
+### 🛠 二、安装步骤（以 Miniconda 为例）
+
+1. 下载 Miniconda 安装脚本
+
+   可在[官网](https://www.anaconda.com/docs/getting-started/miniconda/main)下载对应版本或使用 `wget` 命令：
+
+   ```bash
+   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   ```
+2. 运行安装脚本
+
+   ```bash
+   bash Miniconda3-latest-Linux-x86_64.sh
+   ```
+
+   安装过程中会提示输入安装路径，建议填写你自己的数据目录路径：
+
+   ```
+   /HDD_DISK/users/{username}/miniconda3
+   ```
+
+   其余一律回车。安装完成后，`source ~/.bashrc`
+3. 测试 Conda 是否安装成功
+
+   ```bash
+   conda --version
+   ```
+
+   会输出类似下面的内容，表示 Conda 已正常安装并可用：
+
+   ```bash
+   conda 24.3.0
+   ```
+
+### 🚀 三、加速安装：配置国内镜像源
+
+由于服务器访问 PyPI 官方源速度较慢，可能导致安装 Python 包时超时或下载缓慢，建议配置国内镜像源以提升安装速度。
+
+```bash
+# 升级 pip
+python -m pip install --upgrade pip
+# 设置 pip 使用清华源
+pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+```
+
+你也可以查看配置是否生效：
+
+```bash
+pip config list
+```
+
+#### 💡 常见国内源列表（可选）
+
+| 镜像源   | 地址                                                     |
+| -------- | -------------------------------------------------------- |
+| 清华大学 | `https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple` |
+| 中科大   | `https://pypi.mirrors.ustc.edu.cn/simple`              |
+| 阿里云   | `https://mirrors.aliyun.com/pypi/simple/`              |
+
+---
 
 ## 🤗 Hugging Face 配置
 
