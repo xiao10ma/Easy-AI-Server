@@ -176,6 +176,7 @@ https://github.com/user-attachments/assets/4e5686ab-5496-44ee-83c3-c5b160802701
 ### 🛠 安装步骤（以 Miniconda 为例）
 
 1. 下载 Miniconda 安装脚本
+   
    可在[官网](https://www.anaconda.com/docs/getting-started/miniconda/main)下载对应版本或使用 `wget` 命令：
 
    ```bash
