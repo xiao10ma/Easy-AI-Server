@@ -473,6 +473,7 @@ pip install -r requirements.txt
 ```bash
 torch==2.0.1
 ```
+
 查阅官网可知，`torch==2.0.1` 支持：
 
 - CUDA 11.7
@@ -480,13 +481,16 @@ torch==2.0.1
 
 <p align="center"><img src="image/README/torch_version.png" width="70%"></p>
 
-
 #### 🔍 查看服务器当前 CUDA 版本
+
 使用以下命令查看当前默认 CUDA 版本：
+
 ```bash
 nvcc -V
 ```
+
 示例输出：
+
 ```bash
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2021 NVIDIA Corporation
@@ -494,29 +498,38 @@ Built on Fri_Dec_17_18:16:03_PST_2021
 Cuda compilation tools, release 11.6, V11.6.55
 Build cuda_11.6.r11.6/compiler.30794723_0
 ```
+
 说明当前默认版本是 **CUDA 11.6**，不满足 `torch==2.0.1` 的最低要求。
 
 #### 📦 查看服务器已安装的 CUDA 版本
+
 ```bash
 ls /usr/local
 ```
+
 输出示例：
+
 ```bash
 bin  cuda  cuda-10.1  cuda-11.6  cuda-11.8  cuda-12.1  cuda-12.2  cuda-12.6  cuda-12.8  etc  games  include  lib  man  sbin  share  src  zed
 ```
 
 #### 🔧 切换至指定 CUDA 版本（以 11.8 为例）
+
 编辑 `~/.bashrc`，添加以下内容：
 
 ```bash
 export PATH=/usr/local/cuda-11.8/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64:$LD_LIBRARY_PATH
 ```
+
 执行 `source ~/.bashrc` 使配置生效，验证切换是否成功：
+
 ```bash
 nvcc -V
 ```
+
 应输出：
+
 ```bash
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2022 NVIDIA Corporation
@@ -526,7 +539,9 @@ Build cuda_11.8.r11.8/compiler.31833905_0
 ```
 
 #### ✅ 安装 PyTorch
+
 根据查到的版本信息，在终端中运行：
+
 ```bash
 pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
 ```
@@ -537,60 +552,63 @@ pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https
 
 1. 下载安装包
 
-    ```bash
-    cd /HDD_DISK/users/mazipei
-    mkdir cuda_install
-    cd cuda_install
-    wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
-    ```
-
+   ```bash
+   cd /HDD_DISK/users/mazipei
+   mkdir cuda_install
+   cd cuda_install
+   wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
+   ```
 2. 运行安装程序（无需 sudo）
 
-    ```bash
-    chmod +x cuda_11.8.0_520.61.05_linux.run
+   ```bash
+   chmod +x cuda_11.8.0_520.61.05_linux.run
 
-    ./cuda_11.8.0_520.61.05_linux.run \
-    --toolkit \
-    --toolkitpath=/HDD_DISK/users/{username}/cuda-11.8 \
-    --defaultroot=/HDD_DISK/users/{username}/cuda-11.8
-    ```
-    命令说明：
+   ./cuda_11.8.0_520.61.05_linux.run \
+   --toolkit \
+   --toolkitpath=/HDD_DISK/users/{username}/cuda-11.8 \
+   --defaultroot=/HDD_DISK/users/{username}/cuda-11.8
+   ```
 
-    - `--toolkit` 表示只安装CUDA工具包
-    - `--toolkitpath` 指定安装路径
-    - `--defaultroot` 指定默认根目录
+   命令说明：
 
-    安装界面选项说明：
+   - `--toolkit` 表示只安装CUDA工具包
+   - `--toolkitpath` 指定安装路径
+   - `--defaultroot` 指定默认根目录
 
-    - 取消勾选 [ ] Driver（无 sudo 权限安装不了驱动）
+   安装界面选项说明：
 
-    - 保留 [X] CUDA Toolkit 和 [X] Documentation
-
-    - 用方向键选中 Install → 回车开始安装
-
+   - 取消勾选 [ ] Driver（无 sudo 权限安装不了驱动）
+   - 保留 [X] CUDA Toolkit 和 [X] Documentation
+   - 用方向键选中 Install → 回车开始安装
 3. 安装完成后：配置环境变量
 
-    编辑 `~/.bashrc`，添加以下内容：
+   编辑 `~/.bashrc`，添加以下内容：
 
-    ```bash
-    export PATH=/HDD_DISK/users/{username}/cuda-11.8/bin:$PATH
-    export LD_LIBRARY_PATH=/HDD_DISK/users/{username}/cuda-11.8/lib64:$LD_LIBRARY_PATH
-    export CUDA_HOME=/HDD_DISK/users/{username}/cuda-11.8
-    ```
+   ```bash
+   export PATH=/HDD_DISK/users/{username}/cuda-11.8/bin:$PATH
+   export LD_LIBRARY_PATH=/HDD_DISK/users/{username}/cuda-11.8/lib64:$LD_LIBRARY_PATH
+   export CUDA_HOME=/HDD_DISK/users/{username}/cuda-11.8
+   ```
 
-    执行 `source ~/.bashrc` 使配置生效。`nvcc -V` 查看是否切换成功。
+   执行 `source ~/.bashrc` 使配置生效。`nvcc -V` 查看是否切换成功。
 
 ---
 
-这里推荐再安装一个 `nvitop`，方便查看GPU使用情况：
+### 🔥 实验推荐安装工具
 
-```bash
-pip install nvitop
-```
+1. [nvitop](https://github.com/XuehaiPan/nvitop)，方便查看GPU使用情况：
 
-效果如下，可以实时查看GPU, CPU, 内存使用情况：
+    ```bash
+    pip install nvitop
+    ```
 
-<p align="center"><img src="https://user-images.githubusercontent.com/16078332/171005261-1aad126e-dc27-4ed3-a89b-7f9c1c998bf7.png" width="100%"></p>
+    效果如下，可以实时查看GPU, CPU, 内存使用情况：
+
+    <p align="center"><img src="https://user-images.githubusercontent.com/16078332/171005261-1aad126e-dc27-4ed3-a89b-7f9c1c998bf7.png" width="100%"></p>
+
+2. [ExpOven](https://github.com/IsshikiHugh/ExpOven)，方便提醒实验进度：
+
+    具体安装见 [ExpOven](https://github.com/IsshikiHugh/ExpOven) 的 `README.md` 文件。
 
 ---
 
