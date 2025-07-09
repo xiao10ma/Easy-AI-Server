@@ -259,8 +259,6 @@ GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
 | 添加文件到暂存区 | `git add {filename}` 或 `git add .` | 将修改加入“待提交”列表    |
 | 提交修改         | `git commit -m "提交说明"`            | 提交修改并写入说明          |
 | 查看历史记录     | `git log`                             | 查看提交记录                |
-| 查看简洁历史     | `git log --oneline`                   | 只看摘要                    |
-| 查看改动内容     | `git diff`                            | 查看还没提交的修改内容      |
 | 推送到远程仓库   | `git push`                            | 把本地修改推送到远程仓库    |
 | 拉取远程更新     | `git pull`                            | 下载并合并远程仓库的内容    |
 
@@ -268,46 +266,14 @@ GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
 
 ---
 
-#### 📝 实战：创建自己的 Git 仓库并上传代码（配合 VS Code 使用）
+### 🌐 使用 SSH 方式连接 GitHub
 
-1. 在Github上创建一个仓库
+在开始使用 Git 和 GitHub 之前，我们先来配置 SSH 连接。这样可以避免每次 push 代码时都需要输入用户名和密码，既安全又省心。
 
-   - 点击右上角 "➕" → New repository
-   - 填写仓库名（比如：`my-first-repo`），可以选择 Public 或 Private
-   - 勾选 "Initialize with README"，这样仓库中会有一个初始文件README.md
-     
-<p align="center"><img src="image/README/new_repo.png" width="50%"></p>
-
-2. 克隆仓库到本地
-
-   - 点击 "Code" -> "HTTPS" -> 复制链接
-   - 用VS Code连接服务器，在终端执行：
-
-   ```bash
-   git clone {repo_url}
-   # example: git clone https://github.com/xiao10ma/my-first-repo.git
-   ```
-
-<p align="center"><img src="image/README/clone_repo.png" width="80%"></p>
-
-3. 修改文件并上传
-
-   - 随意修改文件
-   - 在左侧栏，源代码管理处，点击加号，添加文件到暂存区
-   - 写好提交信息（比如：`修改了README文件`），点击“✓提交”
-   - 点击 “同步更改” 按钮，将提交内容推送至 GitHub
-   - 此时，在GitHub上，可以看到文件被修改了
-
-<p align="center"><img src="image/README/add_push.png" width="50%"></p>
-
----
-
-### 🌐 如何连接 GitHub（SSH 登录方式）
-
-#### ✅ 1. 生成 SSH 密钥（如果还没生成过）
+#### ✅ 1. 生成 SSH 密钥（服务器端）
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C "{your_email@example.com}"
 ```
 
 一路回车，生成 `~/.ssh/id_rsa` 和 `id_rsa.pub`
@@ -319,32 +285,54 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 3. 选择 `SSH and GPG keys` → `New SSH key`
 4. 把本地的 `id_rsa.pub` 内容复制进去：
 
+cat 查看`id_rsa.pub`：
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
 
----
-
-### 🗂 Git 项目典型工作流程（本地修改后推送）
+#### ✅ 3. 测试 SSH 连接
 
 ```bash
-# 克隆项目（只做一次）
-git clone git@github.com:{your_username}/{repo_name}.git
-
-# 进入项目目录
-cd {repo_name}
-
-# 修改代码...
-
-# 添加文件到暂存区
-git add .
-
-# 提交修改
-git commit -m "fix: 修复了某个问题"
-
-# 推送到远程仓库
-git push
+ssh -T git@github.com
 ```
+
+如果出现 `Hi {username}! You've successfully authenticated, but GitHub does not provide shell access.` 则说明连接成功。
+
+---
+
+### 📝 实战：创建自己的 Git 仓库并上传代码（配合 VS Code 使用）
+
+完成 SSH 配置后，现在我们来创建并使用自己的 Git 仓库：
+
+1. 在Github上创建一个仓库
+
+   - 点击右上角 "➕" → New repository
+   - 填写仓库名（比如：`my-first-repo`），可以选择 Public 或 Private
+   - 勾选 "Initialize with README"，这样仓库中会有一个初始文件README.md
+     
+<p align="center"><img src="image/README/new_repo.png" width="50%"></p>
+
+2. 克隆仓库到本地
+
+   - 点击 "Code" -> "SSH" -> 复制链接（注意：现在我们使用 SSH 链接而不是 HTTPS）
+   - 用VS Code连接服务器，在终端执行：
+
+   ```bash
+   git clone {repo_url}
+   # example: git clone git@github.com:xiao10ma/my-first-repo.git
+   ```
+
+<p align="center"><img src="image/README/clone_repo.png" width="80%"></p>
+
+3. 修改文件并上传
+
+   - 修改文件，比如在README.md中添加一行内容
+   - 在左侧栏，源代码管理处，点击加号，添加文件到暂存区
+   - 写好提交信息（比如：`修改了README文件`），点击"✓提交"
+   - 点击 "同步更改" 按钮，将提交内容推送至 GitHub
+   - 此时，在GitHub上，可以看到文件被修改了
+
+<p align="center"><img src="image/README/add_push.png" width="50%"></p>
 
 ---
 
