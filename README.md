@@ -172,21 +172,21 @@ vim {filename}
 
 进入 vim 后，你会看到文件内容，但不能直接输入内容。**Vim 有三个常用模式**：
 
-| 模式   | 功能            | 如何进入                   |
-| ---- | ------------- | ---------------------- |
-| 普通模式 | 浏览 / 删除 / 复制等 | 打开 vim 默认就是普通模式        |
-| 插入模式 | 输入文本          | 按 `i` 进入插入模式           |
-| 命令模式 | 保存、退出等命令操作    | 按 `Esc` 回到普通模式，再输入 `:` |
+| 模式     | 功能                 | 如何进入                              |
+| -------- | -------------------- | ------------------------------------- |
+| 普通模式 | 浏览 / 删除 / 复制等 | 打开 vim 默认就是普通模式             |
+| 插入模式 | 输入文本             | 按 `i` 进入插入模式                 |
+| 命令模式 | 保存、退出等命令操作 | 按 `Esc` 回到普通模式，再输入 `:` |
 
 #### 常用操作速查：
 
-| 操作     | 命令              | 说明               |
-| ------ | --------------- | ---------------- |
-| 进入插入模式 | `i`             | 开始输入内容           |
-| 退出插入模式 | `Esc`           | 返回普通模式           |
-| 保存并退出  | `:wq` + `Enter` | 写入文件并退出          |
-| 强制退出   | `:q!` + `Enter` | 不保存修改直接退出（⚠️ 慎用） |
-| 仅保存    | `:w` + `Enter`  | 保存但不退出           |
+| 操作         | 命令                | 说明                            |
+| ------------ | ------------------- | ------------------------------- |
+| 进入插入模式 | `i`               | 开始输入内容                    |
+| 退出插入模式 | `Esc`             | 返回普通模式                    |
+| 保存并退出   | `:wq` + `Enter` | 写入文件并退出                  |
+| 强制退出     | `:q!` + `Enter` | 不保存修改直接退出（⚠️ 慎用） |
+| 仅保存       | `:w` + `Enter`  | 保存但不退出                    |
 
 </details>
 
@@ -228,7 +228,7 @@ vim {filename}
 ### 🛠 安装步骤（以 Miniconda 为例）
 
 1. 下载 Miniconda 安装脚本
-   
+
    可在[官网](https://www.anaconda.com/docs/getting-started/miniconda/main)下载对应版本或使用 `wget` 命令：
 
    ```bash
@@ -278,26 +278,177 @@ pip config list
 
 #### 💡 常见国内源列表（可选）
 
-| 镜像源       | 地址                                                     |
-| ------------ | -------------------------------------------------------- |
-| 清华大学     | `https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple` |
-| 中科大 | `https://pypi.mirrors.ustc.edu.cn/simple`              |
-| 阿里云       | `https://mirrors.aliyun.com/pypi/simple/`              |
+| 镜像源   | 地址                                                     |
+| -------- | -------------------------------------------------------- |
+| 清华大学 | `https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple` |
+| 中科大   | `https://pypi.mirrors.ustc.edu.cn/simple`              |
+| 阿里云   | `https://mirrors.aliyun.com/pypi/simple/`              |
 
 ---
 
+## 🧩 Git 与 GitHub 使用简明指南
+
+### 📌 Git 是什么？
+
+Git 是一个**分布式版本控制工具**，用于追踪代码历史、协作开发。简单来说，它可以：
+
+* 记录你对文件做的每一次修改
+* 回退到之前的某个状态
+* 与别人一起协作开发（配合 GitHub 使用）
+
+---
+
+### ☁️ GitHub 是什么？
+
+GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
+
+* 把本地代码上传到 GitHub 上备份
+* 与他人协作开发项目
+* 克隆别人的开源项目到本地使用
+
+---
+
+### 🛠 常见 Git 命令
+
+| 操作             | 命令                                    | 说明                        |
+| ---------------- | --------------------------------------- | --------------------------- |
+| 初始化仓库       | `git init`                            | 在当前目录创建一个 Git 仓库 |
+| 克隆项目         | `git clone {repo_url}`                | 下载远程仓库到本地          |
+| 查看状态         | `git status`                          | 查看当前修改了哪些文件      |
+| 添加文件到暂存区 | `git add {filename}` 或 `git add .` | 将修改加入“待提交”列表    |
+| 提交修改         | `git commit -m "提交说明"`            | 提交修改并写入说明          |
+| 查看历史记录     | `git log`                             | 查看提交记录                |
+| 查看简洁历史     | `git log --oneline`                   | 只看摘要                    |
+| 查看改动内容     | `git diff`                            | 查看还没提交的修改内容      |
+| 推送到远程仓库   | `git push`                            | 把本地修改推送到远程仓库    |
+| 拉取远程更新     | `git pull`                            | 下载并合并远程仓库的内容    |
+
+这里建议搭配VSCode的Git可视化功能使用，上述大部分命令可以直接在可视化界面解决。
+
+下面展示如何快速上手Git，并配合VSCode的Git可视化功能使用。
+
+#### 📝 实战：创建自己的 Git 仓库并上传代码
+
+1. 在Github上创建一个仓库
+
+   - 点击右上角 "➕" → New repository
+   - 填写仓库名（比如：`my-first-repo`），可以选择 Public 或 Private
+   - 勾选 "Initialize with README"
+     ![1752039636946](image/README/1752039636946.png)
+2. 克隆仓库到本地
+
+   - 点击 "Code" -> "HTTPS" -> 复制链接
+   - 用VSCode连接服务器，在终端执行：
+
+   ```bash
+   git clone {repo_url}
+   # example: git clone https://github.com/mazipei/my-first-repo.git
+   ```
+
+   ![1752039670833](image/README/1752039670833.png)
+3. 修改文件并上传
+
+   - 随意修改文件
+   - 在左侧栏，源代码管理处，点击加号，添加文件到暂存区
+   - 写好提交信息（比如：`添加了README文件`），点提交
+   - 点击，同步，即可看到文件被上传到Github上
+     ![1752039598011](image/README/1752039598011.png)
+
+---
+
+### 🌐 如何连接 GitHub（SSH 登录方式）
+
+#### ✅ 1. 生成 SSH 密钥（如果还没生成过）
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+一路回车，生成 `~/.ssh/id_rsa` 和 `id_rsa.pub`
+
+#### ✅ 2. 添加公钥到 GitHub
+
+1. 登录 GitHub
+2. 点击右上角头像 → `Settings`
+3. 选择 `SSH and GPG keys` → `New SSH key`
+4. 把本地的 `id_rsa.pub` 内容复制进去：
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+
+---
+
+### 🗂 Git 项目典型工作流程（本地修改后推送）
+
+```bash
+# 克隆项目（只做一次）
+git clone git@github.com:{your_username}/{repo_name}.git
+
+# 进入项目目录
+cd {repo_name}
+
+# 修改代码...
+
+# 添加文件到暂存区
+git add .
+
+# 提交修改
+git commit -m "fix: 修复了某个问题"
+
+# 推送到远程仓库
+git push
+```
+
+---
+
+### 🧠 建议写法：配合 `.gitignore`
+
+为了避免不必要的文件上传到 GitHub（如模型权重、日志文件等），建议你在项目根目录添加 `.gitignore` 文件，例如：
+
+```bash
+*.pyc
+*.log
+*.pt
+__pycache__/
+checkpoints/
+```
+
+---
+
+### 🤔 常见问题
+
+| 问题                             | 解决方式                                            |
+| -------------------------------- | --------------------------------------------------- |
+| 每次 push 都要输入用户名和密码？ | 建议使用 SSH 密钥                                   |
+| 忘了加文件就提交了？             | 用 `git add` 后重新 `git commit --amend`        |
+| 提交错了？想回滚？               | `git reset` 或 `git checkout`，建议查阅具体教程 |
+
 ## 🤗 Hugging Face 配置
+
 Hugging Face 是一个流行的模型与数据集共享平台，但由于服务器访问其官网速度较慢，默认的下载路径也可能占用主目录空间。因此建议进行以下配置。
 
 1. 设置下载缓存目录到数据盘
-Hugging Face 默认将模型、数据集等缓存到 ~/.cache/huggingface，可能占用主目录空间较大。你可以将其重定向到数据目录：
+   Hugging Face 默认将模型、数据集等缓存到 ~/.cache/huggingface，可能占用主目录空间较大。你可以将其重定向到数据目录：
 
-```bash
-export HF_HOME=/HDD_DISK/users/{username}/huggingface
-```
-将这行添加到你的 `~/.bashrc` 或 `~/.zshrc` 中，并执行：
-```bash
-source ~/.bashrc
-```
-这样下载的模型和数据将会缓存在 `/HDD_DISK/users/{username}/huggingface` 下，避免挤满系统盘。
+   ```bash
+   export HF_HOME=/HDD_DISK/users/{username}/huggingface
+   ```
 
+   将这行添加到你的 `~/.bashrc` 或 `~/.zshrc` 中，并执行：
+
+   ```bash
+   source ~/.bashrc
+   ```
+
+   这样下载的模型和数据将会缓存在 `/HDD_DISK/users/{username}/huggingface` 下，避免挤满系统盘。
+2. 设置国内镜像加速
+   如果你访问 Hugging Face 较慢，可以尝试配置国内镜像:
+
+   ```bash
+   export HF_ENDPOINT=https://hf-mirror.com
+   ```
+
+   同样建议将其加入 `~/.bashrc` 或 `~/.zshrc`，以便永久生效。
+
+---
