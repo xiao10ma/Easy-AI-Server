@@ -23,6 +23,16 @@
         <li><a href="#-加速安装配置国内镜像源">2.3 加速安装：配置国内镜像源 - Speed Up with Mirrors</a></li>
       </ul>
     </li>
+    <li><a href="#-git-与-github-使用简明指南">3. Git 与 GitHub 使用简明指南 - Git & GitHub Guide</a>
+      <ul>
+        <li><a href="#-一git-是什么">3.1 Git 是什么？ - What is Git?</a></li>
+        <li><a href="#-二github-是什么">3.2 GitHub 是什么？ - What is GitHub?</a></li>
+        <li><a href="#-三常见-git-命令">3.3 常见 Git 命令 - Common Git Commands</a></li>
+        <li><a href="#-如何连接-github">3.4 如何连接 GitHub - GitHub Connection</a></li>
+        <li><a href="#-git-项目典型工作流程">3.5 Git 项目典型工作流程 - Git Workflow</a></li>
+      </ul>
+    </li>
+    <li><a href="#-hugging-face-配置">4. Hugging Face 配置 - Hugging Face Setup</a></li>
   </ul>
 </nav>
 
@@ -133,7 +143,7 @@ ssh 3090
 ssh 4090
 ```
 
-或者用vscode：
+或者用 VS Code：
 
 https://github.com/user-attachments/assets/4e5686ab-5496-44ee-83c3-c5b160802701
 
@@ -221,11 +231,11 @@ vim {filename}
 
 在服务器上使用 Anaconda（或更轻量的 Miniconda）可以方便地管理 Python 环境和依赖库。由于不同项目通常依赖不同版本的 Python、PyTorch、CUDA 等组件，使用 Conda 环境进行隔离是一种推荐的做法。
 
-### 📦 安装位置建议
+### 📦 一、安装位置建议
 
 深度学习项目常常依赖较大的包（如 `torch`、`transformers`、`diffusers` 等），安装体积可能达到数 GB。为了避免占用主目录空间（尤其是 `/home/{username}` 容量较小的情况），**建议将 Conda 安装至数据目录**。
 
-### 🛠 安装步骤（以 Miniconda 为例）
+### 🛠 二、安装步骤（以 Miniconda 为例）
 
 1. 下载 Miniconda 安装脚本
 
@@ -259,7 +269,7 @@ vim {filename}
    conda 24.3.0
    ```
 
-### 🚀 加速安装：配置国内镜像源
+### 🚀 三、加速安装：配置国内镜像源
 
 由于服务器访问 PyPI 官方源速度较慢，可能导致安装 Python 包时超时或下载缓慢，建议配置国内镜像源以提升安装速度。
 
@@ -288,7 +298,7 @@ pip config list
 
 ## 🧩 Git 与 GitHub 使用简明指南
 
-### 📌 Git 是什么？
+### 📌 一、Git 是什么？
 
 Git 是一个**分布式版本控制工具**，用于追踪代码历史、协作开发。简单来说，它可以：
 
@@ -298,7 +308,7 @@ Git 是一个**分布式版本控制工具**，用于追踪代码历史、协作
 
 ---
 
-### ☁️ GitHub 是什么？
+### ☁️ 二、GitHub 是什么？
 
 GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
 
@@ -308,7 +318,7 @@ GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
 
 ---
 
-### 🛠 常见 Git 命令
+### 🛠 三、常见 Git 命令
 
 | 操作             | 命令                                    | 说明                        |
 | ---------------- | --------------------------------------- | --------------------------- |
@@ -323,40 +333,41 @@ GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
 | 推送到远程仓库   | `git push`                            | 把本地修改推送到远程仓库    |
 | 拉取远程更新     | `git pull`                            | 下载并合并远程仓库的内容    |
 
-这里建议搭配VSCode的Git可视化功能使用，上述大部分命令可以直接在可视化界面解决。
+这里建议搭配 VS Code 的 Git 可视化功能使用，上述大部分命令在图形界面中都可以轻松完成。
 
-下面展示如何快速上手Git，并配合VSCode的Git可视化功能使用。
+---
 
-#### 📝 实战：创建自己的 Git 仓库并上传代码
+#### 📝 实战：创建自己的 Git 仓库并上传代码（配合 VS Code 使用）
 
 1. 在Github上创建一个仓库
 
    - 点击右上角 "➕" → New repository
    - 填写仓库名（比如：`my-first-repo`），可以选择 Public 或 Private
-   - 勾选 "Initialize with README"
+   - 勾选 "Initialize with README"，这样仓库中会有一个初始文件README.md
      
-<p align="center"><img src="image/README/1752039636946.png" width="50%"></p>
+<p align="center"><img src="image/README/new_repo.png" width="50%"></p>
 
 2. 克隆仓库到本地
 
    - 点击 "Code" -> "HTTPS" -> 复制链接
-   - 用VSCode连接服务器，在终端执行：
+   - 用VS Code连接服务器，在终端执行：
 
    ```bash
    git clone {repo_url}
-   # example: git clone https://github.com/mazipei/my-first-repo.git
+   # example: git clone https://github.com/xiao10ma/my-first-repo.git
    ```
 
-<p align="center"><img src="image/README/1752039670833.png" width="80%"></p>
+<p align="center"><img src="image/README/clone_repo.png" width="80%"></p>
 
 3. 修改文件并上传
 
    - 随意修改文件
    - 在左侧栏，源代码管理处，点击加号，添加文件到暂存区
-   - 写好提交信息（比如：`添加了README文件`），点提交
-   - 点击，"同步更改"，即可看到文件被上传到Github上
+   - 写好提交信息（比如：`修改了README文件`），点击“✓提交”
+   - 点击 “同步更改” 按钮，将提交内容推送至 GitHub
+   - 此时，在GitHub上，可以看到文件被修改了
 
-<p align="center"><img src="image/README/1752039598011.png" width="50%"></p>
+<p align="center"><img src="image/README/add_push.png" width="50%"></p>
 
 ---
 
