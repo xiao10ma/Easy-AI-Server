@@ -23,7 +23,7 @@
         <li><a href="#-三常见-git-命令">2.3 常见 Git 命令 - Common Git Commands</a></li>
         <li><a href="#-四使用-ssh-方式连接-github">2.4 使用 SSH 方式连接 GitHub</a></li>
         <li><a href="#-五实战创建自己的-git-仓库并上传代码配合-vs-code-使用">2.5 实战：创建自己的 Git 仓库并上传代码（配合 VS Code 使用）</a></li>
-        <li><a href="#-六额外tips">2.6 额外Tips - Extra Tips</a></li>
+        <li><a href="#-六额外tips---extra-tips">2.6 额外Tips - Extra Tips</a></li>
       </ul>
     </li>
     <li><a href="#-anaconda--miniconda-安装与配置">3. Anaconda/Miniconda 安装与配置 - Installation & Setup</a>
@@ -337,7 +337,7 @@ ssh -T git@github.com
 
 ---
 
-### 💡 六、额外Tips:
+### 💡 六、额外Tips - Extra Tips:
 
 #### 建议写法：配合 `.gitignore`
 
