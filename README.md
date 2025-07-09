@@ -334,8 +334,9 @@ GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
    - 点击右上角 "➕" → New repository
    - 填写仓库名（比如：`my-first-repo`），可以选择 Public 或 Private
    - 勾选 "Initialize with README"
-    
-    <center><img src="image/README/1752039636946.png" style="width: 50%;"></center>
+     
+<p align="center"><img src="image/README/1752039636946.png" width="50%"></p>
+
 2. 克隆仓库到本地
 
    - 点击 "Code" -> "HTTPS" -> 复制链接
@@ -346,15 +347,16 @@ GitHub 是一个基于 Git 的**远程代码托管平台**。你可以：
    # example: git clone https://github.com/mazipei/my-first-repo.git
    ```
 
-   <center><img src="image/README/1752039670833.png" style="width: 80%;"></center>
+<p align="center"><img src="image/README/1752039670833.png" width="80%"></p>
+
 3. 修改文件并上传
 
    - 随意修改文件
    - 在左侧栏，源代码管理处，点击加号，添加文件到暂存区
    - 写好提交信息（比如：`添加了README文件`），点提交
-   - 点击，“同步更改”，即可看到文件被上传到Github上
+   - 点击，"同步更改"，即可看到文件被上传到Github上
 
-    <center><img src="image/README/1752039598011.png" style="width: 50%;"></center>
+<p align="center"><img src="image/README/1752039598011.png" width="50%"></p>
 
 ---
 
