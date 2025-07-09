@@ -6,16 +6,25 @@
 
 # Contents - 目录
 
-## 🐧 Linux 常用命令与基础知识
-- [🌐 一、远程登录](#-一远程登录)
-- [📁 二、文件与目录操作](#-二文件与目录操作)
-- [🖥 三、服务器资源查看](#-三服务器资源查看)
-- [🧼 四、实用技巧](#-四实用技巧)
-
-## 🐍 Anaconda / Miniconda 安装与配置
-- [📦 安装位置建议](#-安装位置建议)
-- [🛠 安装步骤](#-安装步骤以-miniconda-为例)
-- [🚀 加速安装：配置国内镜像源](#-加速安装配置国内镜像源)
+<nav>
+  <ul>
+    <li><a href="#linux">1. Linux 常用命令与基础知识 - Basic Linux Commands</a>
+      <ul>
+        <li><a href="#remote-login">1.1 远程登录 - Remote Login</a></li>
+        <li><a href="#file-operations">1.2 文件与目录操作 - File Operations</a></li>
+        <li><a href="#resource-monitoring">1.3 服务器资源查看 - Resource Monitoring</a></li>
+        <li><a href="#tips">1.4 实用技巧 - Useful Tips</a></li>
+      </ul>
+    </li>
+    <li><a href="#conda">2. Anaconda/Miniconda 安装与配置 - Installation & Setup</a>
+      <ul>
+        <li><a href="#installation-location">2.1 安装位置建议 - Installation Location</a></li>
+        <li><a href="#installation-steps">2.2 安装步骤 - Installation Steps</a></li>
+        <li><a href="#speed-up">2.3 加速安装：配置国内镜像源 - Speed Up with Mirrors</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 ## 🐧 Linux 常用命令与基础知识
 
