@@ -160,6 +160,36 @@ https://github.com/user-attachments/assets/4e5686ab-5496-44ee-83c3-c5b160802701
 | 复制文件     | `cp {a.txt} {b.txt}`  | 将 `a.txt` 复制为 `b.txt`                                                                            |
 | 移动/重命名  | `mv {a.txt} {b.txt}`  | 改名或移动文件                                                                                           |
 
+<details>
+<summary>✏️ 补充：Vim 文件编辑器（最基本用法）</summary>
+
+在服务器中，经常需要快速编辑配置文件或脚本，推荐使用轻量级编辑器 `vim`。
+
+```bash
+vim {filename}
+# 例如：vim run.sh
+```
+
+进入 vim 后，你会看到文件内容，但不能直接输入内容。**Vim 有三个常用模式**：
+
+| 模式   | 功能            | 如何进入                   |
+| ---- | ------------- | ---------------------- |
+| 普通模式 | 浏览 / 删除 / 复制等 | 打开 vim 默认就是普通模式        |
+| 插入模式 | 输入文本          | 按 `i` 进入插入模式           |
+| 命令模式 | 保存、退出等命令操作    | 按 `Esc` 回到普通模式，再输入 `:` |
+
+#### 常用操作速查：
+
+| 操作     | 命令              | 说明               |
+| ------ | --------------- | ---------------- |
+| 进入插入模式 | `i`             | 开始输入内容           |
+| 退出插入模式 | `Esc`           | 返回普通模式           |
+| 保存并退出  | `:wq` + `Enter` | 写入文件并退出          |
+| 强制退出   | `:q!` + `Enter` | 不保存修改直接退出（⚠️ 慎用） |
+| 仅保存    | `:w` + `Enter`  | 保存但不退出           |
+
+</details>
+
 ---
 
 ### 🖥 三、服务器资源查看
@@ -251,7 +281,23 @@ pip config list
 | 镜像源       | 地址                                                     |
 | ------------ | -------------------------------------------------------- |
 | 清华大学     | `https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple` |
-| 中国科技大学 | `https://pypi.mirrors.ustc.edu.cn/simple`              |
+| 中科大 | `https://pypi.mirrors.ustc.edu.cn/simple`              |
 | 阿里云       | `https://mirrors.aliyun.com/pypi/simple/`              |
 
 ---
+
+## 🤗 Hugging Face 配置
+Hugging Face 是一个流行的模型与数据集共享平台，但由于服务器访问其官网速度较慢，默认的下载路径也可能占用主目录空间。因此建议进行以下配置。
+
+1. 设置下载缓存目录到数据盘
+Hugging Face 默认将模型、数据集等缓存到 ~/.cache/huggingface，可能占用主目录空间较大。你可以将其重定向到数据目录：
+
+```bash
+export HF_HOME=/HDD_DISK/users/{username}/huggingface
+```
+将这行添加到你的 `~/.bashrc` 或 `~/.zshrc` 中，并执行：
+```bash
+source ~/.bashrc
+```
+这样下载的模型和数据将会缓存在 `/HDD_DISK/users/{username}/huggingface` 下，避免挤满系统盘。
+
